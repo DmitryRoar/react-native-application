@@ -1,9 +1,9 @@
 import React from 'react'
-import {View, StyleSheet, FlatList} from 'react-native'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import {DATA} from '../data'
-import {Post} from '../components/Post'
 import {AppHeaderIcon} from '../components/AppHeaderIcon'
+import {PostList} from '../components/PostList'
+
 
 export const BookedScreen = ({navigation}) => {
 
@@ -15,24 +15,13 @@ export const BookedScreen = ({navigation}) => {
     })
   }
 
-  return (
-    <View style={styles.wrapper}>
-      <FlatList
-        data={DATA.filter(p => p.booked)}
-        keyExtractor={post => post.id.toString()}
-        renderItem={
-          ({item}) => 
-          <Post 
-            post={item} 
+  return <PostList 
+            data={DATA.filter(p => p.booked)} 
             onOpen={openPostHandler} 
-          />
-        }
-      />
-    </View>
-  )
+          /> 
 }
 
-BookedScreen.navigationOptions = {
+BookedScreen.navigationOptions = ({navigation}) => ({
   headerTitle: 'My blog',
   headerRight: <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
     <Item 
@@ -45,13 +34,7 @@ BookedScreen.navigationOptions = {
   <Item 
     title='Toggle Drawer' 
     iconName='ios-menu' 
-    onPress={() => console.log('Press Photo')} 
+    onPress={() => navigation.toggleDrawer()} 
   />
   </HeaderButtons>
-}
-
-const styles = StyleSheet.create({
-  wrapper: {
-    padding: 10
-  }
 })
