@@ -1,12 +1,12 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
-import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import { AppHeaderIcon } from '../components/AppHeaderIcon'
+import {StyleSheet, Text, View} from 'react-native'
+import {HeaderButtons, Item} from 'react-navigation-header-buttons'
+import {AppHeaderIcon} from '../components/AppHeaderIcon'
 
 export const AboutScreen = () => {
   return (
     <View style={styles.center}>
-      <Text>App Version: 
+      <Text>App Version:
         <Text style={styles.version}> 1.0.0</Text>
       </Text>
     </View>
@@ -16,13 +16,13 @@ export const AboutScreen = () => {
 AboutScreen.navigationOptions = ({navigation}) => {
   return {
     headerTitle: 'About application',
-    headerLeft: <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
-    <Item 
-      title='Toggle Drawer' 
-      iconName='ios-menu' 
-      onPress={() => navigation.toggleDrawer()} 
-    />
-    </HeaderButtons>
+    headerLeft: () => (<HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
+      <Item
+        title='Toggle Drawer'
+        iconName='ios-menu'
+        onPress={() => navigation.toggleDrawer()}
+      />
+    </HeaderButtons>)
   }
 }
 

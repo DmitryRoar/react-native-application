@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "instagram-mini-clone",
+    "name": "Self Blog",
     "slug": "instagram-mini-clone",
     "version": "1.0.0",
     "orientation": "default",
@@ -17,10 +17,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dmitryroardev.self-blog-rn",
+      "buildNumber": "1.0.0" 
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "android": {
+      "package": "com.dmitryroardev.self_blog_rn",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     }
   }
 }
